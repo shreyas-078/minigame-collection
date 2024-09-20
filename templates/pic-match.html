@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pic-match.css') }}">
+  <script src="{{ url_for('static', filename='js/pic-match.js') }}" defer type="module"></script>
+
+  <title>Stage 9: Picture Puzzle</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="puzzle-wrapper">
+      <div class="cells"></div>
+      <div class="puzzle"></div>
+      <div class="final-img">
+        <div class=" upload-img">
+          <div class="btns">
+            <button class="img-btn btn random-btn">get random image</button>
+          </div>
+          <input type="file" accept="image/jpeg, image/png, image/jpg" id="input-file" />
+        </div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal-content">
+        <h2 class="modal-heading">Game Over</h2>
+        <h3 class="modal-text">YOU WON! <span class="attempt">5</span> wrong attempts</h3>
+        <button class="modal-btn btn">Start Again</button>
+      </div>
+    </div>
+    <div class="loader active"><img src="{{ url_for('static', filename='images/match-image/loader.gif') }}"></div>
+    <h1 class="heading">Stage 9: Picture Puzzle - EXTREME DIFFICULTY</h1>
+  </div>
+</body>
+
+</html>

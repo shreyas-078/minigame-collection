@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 8: Tower of Hanoi</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/hanoi.css') }}">
+    <script src="{{ url_for('static', filename='js/hanoi.js') }}" defer></script>
+    <script type="text/javascript">
+        window.onbeforeunload = function () {
+            return "If you reload this page, the current stage's progress will be lost! Ignore this message if you're going to the next stage.";
+        }
+    </script>
+    <script>
+        // To Prevent User from using back button to come back here.
+        function preventBack() {
+            window.history.forward();
+        }
+
+        setTimeout("preventBack()", 0);
+        window.onunload = function () {
+            null
+        };
+    </script>
+</head>
+
+<body>
+    <h1>Stage 8: Tower of Hanoi </h1>
+    <p>Moves: <span id="moveCount">0</span> / 15</p>
+    <div class="game-container">
+        <div class="tower" id="tower1" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <div class="disk" id="disk4" draggable="true" ondragstart="drag(event)"></div>
+            <div class="disk" id="disk3" draggable="true" ondragstart="drag(event)"></div>
+            <div class="disk" id="disk2" draggable="true" ondragstart="drag(event)"></div>
+            <div class="disk" id="disk1" draggable="true" ondragstart="drag(event)"></div>
+        </div>
+        <div class="tower" id="tower2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+        <div class="tower" id="tower3" ondrop="drop(event)" ondragover="allowDrop(event)">
+        </div>
+
+    </div>
+    <p id="status"></p>
+    <strong> Rules </strong>
+    <br>
+    Move only one disk at a time.
+    <br>
+    You can only move the top disk of a rod.
+    <br>
+    You cannot place a larger disk on top of a smaller disk.
+    <br>
+    <br>
+
+    <strong> Objective </strong><br>
+
+    Move all the disks from Rod A (source) to Rod C (destination) using Rod B (helper), while following the rules. <br>
+    <br>
+
+    <button type="button" onclick="window.location.reload()" style="font-size: 1.5rem;">Reset The Disks</button>
+</body>
+
+</html>

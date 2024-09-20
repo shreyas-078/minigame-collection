@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stage 4: Hangman</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/hangman.css') }}">
+  <script src="{{ url_for('static', filename = 'js/hangman.js') }}" defer></script>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>Stage 4: Hangman</h1>
+    <h2>Guess The Word to Prevent John Doe from getting executed and advance!</h2>
+    <p>
+      Use the alphabet below to guess the word, or click hint to get a clue.
+    </p>
+  </div>
+  <div class="wrapper">
+    <div id="buttons"></div>
+    <p id="catagoryName"></p>
+    <div id="hold"></div>
+    <p id="mylives"></p>
+    <p id="clue">Clue -</p>
+    <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas
+      tag</canvas>
+    <div class="container">
+      <button id="hint">Hint</button>
+      <button id="reset">Play again</button>
+    </div>
+  </div>
+</body>
+
+</html>

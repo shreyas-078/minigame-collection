@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 Not Found</title>
+</head>
+
+<body style="display: flex; flex-direction: column; gap: 2rem; justify-content: center; align-items: center;">
+  <img src="{{ url_for('static', filename = 'images/404dino.jpg') }}" alt="404dino"
+    style="height: 40rem; width: 50rem;">
+  <h1 style="text-align: center;">The Page you are looking for could not be found. Maybe check your address bar for a
+    typo?</h1>
+</body>
+
+</html>

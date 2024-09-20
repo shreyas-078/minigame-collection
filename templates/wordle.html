@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stage 1: Wordle</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/wordle.css') }}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="{{ url_for('static', filename='js/wordle.js') }}" defer></script>
+  <script type="text/javascript">
+    window.onbeforeunload = function () {
+      return "If you reload this page, the current stage's progress will be lost! Ignore this message if you're going to the next stage.";
+    }
+  </script>
+  <script>
+    // To Prevent User from using back button to come back here.
+    function preventBack() {
+      window.history.forward();
+    }
+
+    setTimeout("preventBack()", 0);
+    window.onunload = function () {
+      null
+    };
+  </script>
+</head>
+
+<body>
+  <h1>Stage 1: Wordle</h1>
+  <div id="game-board"></div>
+  <div id="keyboard-cont">
+    <div class="first-row">
+      <button class="keyboard-button">q</button>
+      <button class="keyboard-button">w</button>
+      <button class="keyboard-button">e</button>
+      <button class="keyboard-button">r</button>
+      <button class="keyboard-button">t</button>
+      <button class="keyboard-button">y</button>
+      <button class="keyboard-button">u</button>
+      <button class="keyboard-button">i</button>
+      <button class="keyboard-button">o</button>
+      <button class="keyboard-button">p</button>
+    </div>
+    <div class="second-row">
+      <button class="keyboard-button">a</button>
+      <button class="keyboard-button">s</button>
+      <button class="keyboard-button">d</button>
+      <button class="keyboard-button">f</button>
+      <button class="keyboard-button">g</button>
+      <button class="keyboard-button">h</button>
+      <button class="keyboard-button">j</button>
+      <button class="keyboard-button">k</button>
+      <button class="keyboard-button">l</button>
+    </div>
+    <div class="third-row">
+      <button class="keyboard-button">Del</button>
+      <button class="keyboard-button">z</button>
+      <button class="keyboard-button">x</button>
+      <button class="keyboard-button">c</button>
+      <button class="keyboard-button">v</button>
+      <button class="keyboard-button">b</button>
+      <button class="keyboard-button">n</button>
+      <button class="keyboard-button">m</button>
+      <button class="keyboard-button">Enter</button>
+    </div>
+    <hr>
+    <div id="game-instructions">
+      <div id="objective">Objective: <br> Guess the hidden 5-letter word within 6 attempts.</div>
+      <div id="gameplay">Gameplay: <br> The player inputs a 5-letter word guess in each round. After each guess, the
+        game provides feedback on the letters of the guessed word.</div>
+      <div id="feedback-explain">Feedback Explanation: <br>
+        Green : If a letter is correct and in the correct position, that letter's box will turn green. <br>
+        Yellow : If a letter is correct but in the wrong position, that letter's box will turn yellow. <br>
+        Gray : If a letter is not in the word at all, that letter's box will turn gray. <br>
+      </div>
+      <div id="input-rules">Input Rules: <br>
+        Each guess must be a valid 5-letter word. The game will not accept non-words or words of incorrect length.
+        Words cannot contain numbers, symbols, or special characters.
+      </div>
+      <div id="winning">Winning: <br>
+        You win if you guess the correct word within 6 attempts. The game ends after a
+        correct guess, proceeding you to the next stage. </div>
+
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</body>
+
+</html>

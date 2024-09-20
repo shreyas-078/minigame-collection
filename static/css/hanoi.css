@@ -1,0 +1,86 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #e5fbe8;
+    font-size: x-large;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 400px;
+}
+
+.tower {
+    width: 150px;
+    height: 400px;
+    background-color: #f5f5f5;
+    /* Light gray background for towers */
+    margin: 0 20px;
+    border: 2px solid #ccc;
+    /* Subtle border */
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 10px;
+}
+
+.disk {
+    height: 30px;
+    margin: 2px;
+    border-radius: 5px;
+    cursor: grab;
+}
+
+/* Disk Colors: neat gradient from light gray to dark */
+#disk1 {
+    width: 50px;
+    background-color: #baecf9;
+    /* Light Gray */
+}
+
+#disk2 {
+    width: 70px;
+    background-color: #a9cce3;
+    /* Light Blue */
+}
+
+#disk3 {
+    width: 90px;
+    background-color: #5499c7;
+    /* Medium Blue */
+}
+
+#disk4 {
+    width: 110px;
+    background-color: #345d89;
+    /* Dark Gray-Blue */
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    /* Darker gray for better readability */
+}
+
+p {
+    font-size: 18px;
+}
+
+#moveCount {
+    font-weight: bold;
+    color: #2e86c1;
+    /* A nice blue for move count */
+}
+
+button {
+    cursor: pointer;
+}

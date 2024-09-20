@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to BIT Games!</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/intro.css') }}">
+  <script src="{{ url_for('static', filename='js/intro.js') }}" defer></script>
+  <script>
+    // To Prevent User from using back button to come back here.
+    function preventBack() {
+      window.history.forward();
+    }
+
+    setTimeout("preventBack()", 0);
+    window.onunload = function () {
+      null
+    };
+  </script>
+</head>
+
+<body>
+  <div id="main-heading">
+    <div>
+      <img src="{{ url_for('static', filename='images/favicon.png') }}" />
+      <h1 id="heading">Welcome to BIT Games!</h1>
+    </div>
+  </div>
+
+  <div id="container-login">
+    <h3 id="helper">Your Stage progress is saved in your account.</h3>
+    <div id="username-container">
+      <label for="name">Enter your Name:</label>
+      <input type="text" id="name">
+    </div>
+    <div id="password-container">
+      <label for="password">Enter your Password:</label>
+      <input type="password" id="password">
+    </div>
+    <p class="invisible" id="helper-text">Invalid Credentials.</p>
+    <button type="button" id="enter-game">Enter the Game!</button>
+    <a href="/new-user">Sign Up</a>
+  </div>
+</body>
+
+</html>

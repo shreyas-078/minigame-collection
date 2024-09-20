@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create a New Profile</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+  <script src="{{ url_for('static', filename='js/create-profile.js') }}" defer></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/create-profile.css') }}">
+  <script>
+    // To Prevent User from using back button to come back here.
+    function preventBack() {
+      window.history.forward();
+    }
+
+    setTimeout("preventBack()", 0);
+    window.onunload = function () {
+      null
+    };
+  </script>
+</head>
+
+<body>
+  <div id="container-creation">
+    <h1>Create a New Profile!</h1>
+    <div id="username-container">
+      <label for="name">Enter your Name (With initials) (Case - Sensitive):</label>
+      <input type="text" id="name">
+    </div>
+    <div id="password-container">
+      <label for="password">Enter your Password:</label>
+      <input type="password" id="password">
+    </div>
+    <p id="helper-text" class="invisible">Invalid Username.</p>
+    <button type="button" id="create-profile">Create Profile!</button>
+    <a href="/">If you already have an account, Log In!</a>
+  </div>
+
+</body>
+
+</html>

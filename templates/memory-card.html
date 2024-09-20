@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Stage 6: Fruit Memory Match</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/memory-card.css') }}">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.min.js"></script>
+  <script src="{{ url_for('static', filename='js/memory-card.js') }}" defer></script>
+</head>
+
+<body>
+  <h1>Stage 6: Memory Match - Fruit Edition</h1>
+  <p id="helper-text" class="invisible">You took too many moves and Fruits rotted. Please Try With A Fresh Batch of
+    Fruits.</p>
+  <div class="grid-container">
+  </div>
+  <p>Moves: <span class="score"></span></p>
+  <div class="actions">
+    <button onclick="restart()">Restart</button>
+  </div>
+</body>
+
+</html>

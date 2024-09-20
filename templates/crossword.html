@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stage 2: Crossword</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/crossword.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+    <script type="text/javascript">
+        window.onbeforeunload = function () {
+            return "If you reload this page, the current stage's progress will be lost! Ignore this message if you're going to the next stage.";
+        }
+    </script>
+    <script>
+        // To Prevent User from using back button to come back here.
+        function preventBack() {
+            window.history.forward();
+        }
+
+        setTimeout("preventBack()", 0);
+        window.onunload = function () {
+            null
+        };
+    </script>
+</head>
+
+<body>
+    <h1 id="stage2-heading">Stage 2: Crossword</h1>
+    <h2 id="stage2-warning">Warning: Refresing or backing out will reset your current progress!</h2>
+    <div id="crossword-container">
+        <table id="crossword-grid"></table>
+    </div>
+    <div id="crossword-buttons">
+        <button id="crossword-check" onClick="checkGrid()">Check</button>
+        <button id="crossword-reset" onClick="clearGrid()">Clear</button>
+    </div>
+    <div id="crossword-score">
+        <h3>Score: <span id="crossword-score-value">0</span></h3>
+    </div>
+    <div id="crossword-hints">
+        <div id="crossword-hints">
+            <div id="crossword-hints-across" class="d-flex flex-column
+                    overflow-auto">
+                <h3>Across:</h3>
+            </div>
+            <div id="crossword-hints-down" class="d-flex flex-column
+                    overflow-auto">
+                <h3>Down:</h3>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/crossword.js') }}" defer></script>
+</body>
+
+</html>

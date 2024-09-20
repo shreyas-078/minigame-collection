@@ -1,0 +1,5 @@
+.env
+Creds.txt
+__pycache__
+.DS_Store
+Idea.txt

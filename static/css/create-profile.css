@@ -1,0 +1,32 @@
+button {
+  cursor: pointer;
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-creation {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.invisible {
+  display: none;
+}
+
+#username-container,
+#password-container {
+  display: inline;
+}

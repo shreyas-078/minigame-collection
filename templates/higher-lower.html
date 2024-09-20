@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
+
+  <title>Stage 5: Higher or Lower Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/higher-lower.css') }}">
+  <script src="{{ url_for('static', filename='js/higher-lower.js') }}" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Stage 5: Higher or Lower</h1>
+    <p id="score">Score: 0</p>
+
+    <div id="topics">
+      <!-- Current Topic on the left -->
+      <div id="currentTopic">
+        <div class="topic-image-wrapper">
+          <img id="currentTopicImage" src="" alt="Current topic image" />
+        </div>
+        <p id="currentTopicName">Topic A</p>
+        <p id="currentTopicSearches">Searches: 100,000</p>
+      </div>
+
+      <!-- Next Topic on the right -->
+      <div id="nextTopic">
+        <div class="topic-image-wrapper">
+          <img id="nextTopicImage" src="" alt="Next topic image" />
+        </div>
+        <p id="nextTopicName">Topic B</p>
+        <p>Does it have more or fewer searches?</p>
+      </div>
+    </div>
+
+    <button id="higherButton">Higher</button>
+    <button id="lowerButton">Lower</button>
+
+    <p id="resultMessage"></p>
+  </div>
+</body>
+
+</html>

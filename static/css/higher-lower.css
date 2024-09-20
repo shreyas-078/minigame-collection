@@ -1,0 +1,102 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(193, 245, 254);
+  ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 10000px;
+  /* Widen the container */
+  max-width: 90%;
+  /* Ensure container does not exceed 90% of viewport width */
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  /* Increase font size of heading */
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+#resultMessage {
+  margin-top: 20px;
+  font-size: 18px;
+  color: green;
+}
+
+#resultMessage.error {
+  color: red;
+}
+
+#topics {
+  display: flex;
+  justify-content: center;
+  /* Center topics horizontally */
+  margin-bottom: 20px;
+  align-items: flex-start;
+  /* Align items to the top */
+}
+
+#currentTopic,
+#nextTopic {
+  width: 45%;
+  /* Each topic takes up 45% of the container */
+  text-align: center;
+  margin: 0 25px;
+  /* Add margin on both sides to increase space between topics */
+}
+
+#currentTopicName,
+#nextTopicName {
+  font-size: 24px;
+  /* Increase the font size of the topic names */
+  font-weight: bold;
+  margin-top: 10px;
+  /* Add some space above the topic name */
+}
+
+#currentTopicSearches {
+  font-size: 20px;
+}
+
+img {
+  width: 100%;
+  /* Images will stretch to fit their container */
+  height: 400px;
+  /* Increase height of images */
+  max-height: 400px;
+  /* Ensure images do not exceed this height */
+  border-radius: 10px;
+  object-fit: cover;
+  /* Maintain aspect ratio and fill the container */
+  margin-bottom: 10px;
+}
+
+.topic-image-wrapper {
+  height: 400px;
+  /* Fix the height of the image wrapper to match image height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
