@@ -26,3 +26,12 @@ body {
 .cell:hover {
   background-color: #ddd;
 }
+
+
+#final-prompt {
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

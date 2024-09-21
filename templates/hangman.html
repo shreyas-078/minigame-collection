@@ -5,33 +5,43 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Stage 4: Hangman</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename = 'css/hangman.css') }}">
-  <script src="{{ url_for('static', filename = 'js/hangman.js') }}" defer></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/hangman.css') }}">
+  <script src="{{ url_for('static', filename='js/hangman.js') }}" defer></script>
   <link rel="icon" href="{{ url_for('static', filename='images/favicon.png') }}" type="image/x-icon">
-
+  <script type="text/javascript">
+    window.onbeforeunload = function () {
+      return "If you reload this page, the current stage's progress will be lost! Ignore this message if you're going to the next stage.";
+    }
+    function preventBack() {
+      window.history.forward();
+    }
+    setTimeout("preventBack()", 0);
+    window.onunload = function () {
+      null
+    };
+  </script>
 </head>
 
 <body>
-  <div class="wrapper">
-    <h1>Stage 4: Hangman</h1>
-    <h2>Guess The Word to Prevent John Doe from getting executed and advance!</h2>
-    <p>
-      Use the alphabet below to guess the word, or click hint to get a clue.
-    </p>
+  <h1>Stage 4: John Doe's Execution</h1>
+  <h2>Guess 3 Phrases Before John Doe Gets Executed!</h2>
+  <div id="word-container"></div>
+  <div id="game-info">
+    <p id="current-category"></p>
+    <p id="correct-phrases-count">Correct Phrases: 0</p>
   </div>
-  <div class="wrapper">
-    <div id="buttons"></div>
-    <p id="catagoryName"></p>
-    <div id="hold"></div>
-    <p id="mylives"></p>
-    <p id="clue">Clue -</p>
-    <canvas id="stickman">This Text will show if the Browser does NOT support HTML5 Canvas
-      tag</canvas>
-    <div class="container">
-      <button id="hint">Hint</button>
-      <button id="reset">Play again</button>
-    </div>
+  <div id="lives">Lives: <span id="lives-count">10</span></div>
+  <div id="keyboard-container"></div>
+  <canvas id="hangmanCanvas" width="200" height="200"></canvas>
+  <div id="game-controls">
+    <button id="hint-button">Show Hint</button>
+    <button id="reset-button">Reset Game</button>
   </div>
+  <p id="hint-message" style="display:none;"></p>
+  <p id="win-message" style="display: none; text-align: center; font-size: 2em; color: whitesmoke;">Congratulations!
+    You've
+    won! John Doe Has given you the letter U as a gift for saving his life! Proceeding to the next stage in 7 seconds.
+  </p>
 </body>
 
 </html>

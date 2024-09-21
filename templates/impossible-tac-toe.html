@@ -13,33 +13,40 @@
       margin-top: 20px;
     }
 
-    #code-prompt {
+    #code-prompt,
+    #final-prompt {
       display: none;
     }
   </style>
 </head>
 
 <body>
-  <h1>Final Stage: Tic-Tac-Toe</h1>
-  <h2>Beat the computer to Finsh the game.</h2>
-  <div id="board">
-    <div class="cell" data-index="0"></div>
-    <div class="cell" data-index="1"></div>
-    <div class="cell" data-index="2"></div>
-    <div class="cell" data-index="3"></div>
-    <div class="cell" data-index="4"></div>
-    <div class="cell" data-index="5"></div>
-    <div class="cell" data-index="6"></div>
-    <div class="cell" data-index="7"></div>
-    <div class="cell" data-index="8"></div>
+  <div id="goat-container">
+    <h1>Final Stage: Tic-Tac-Toe</h1>
+    <h2>Beat the computer to Finsh the game.</h2>
+    <div id="board">
+      <div class="cell" data-index="0"></div>
+      <div class="cell" data-index="1"></div>
+      <div class="cell" data-index="2"></div>
+      <div class="cell" data-index="3"></div>
+      <div class="cell" data-index="4"></div>
+      <div class="cell" data-index="5"></div>
+      <div class="cell" data-index="6"></div>
+      <div class="cell" data-index="7"></div>
+      <div class="cell" data-index="8"></div>
+    </div>
+    <div id="counter">Draws/Losses: <span id="draws-counter">0</span></div>
+    <div id="code-prompt">
+      <img src="{{url_for('static', filename='images/gadbad.gif')}}" alt="Pradyuman Gadbad">
+      <p>Do you happen to know any cheat codes?:</p>
+      <input type="text" id="code-input">
+      <button id="code-submit">Submit</button>
+      <p id="code-message"></p>
+    </div>
   </div>
-  <div id="counter">Draws/Losses: <span id="draws-counter">0</span></div>
-  <div id="code-prompt">
-    <img src="{{url_for('static', filename='images/gadbad.gif')}}" alt="Pradyuman Gadbad">
-    <p>Do you happen to know any cheat codes?:</p>
-    <input type="text" id="code-input">
-    <button id="code-submit">Submit</button>
-    <p id="code-message"></p>
+  <div id="final-prompt">
+    <img src="{{url_for('static', filename='images/7Crore_2.gif')}}" alt="Saath Karod Left">
+    <img src="{{url_for('static', filename='images/7Crore.gif')}}" alt="Saath Karod">
   </div>
   <button id="new-game" style="display: none;">Start New Game</button>
 </body>

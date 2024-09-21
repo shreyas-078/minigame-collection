@@ -6,6 +6,7 @@ const board = Array(9).fill(EMPTY);
 const cells = document.querySelectorAll('.cell');
 const drawsCounterElement = document.getElementById('draws-counter');
 const codePrompt = document.getElementById('code-prompt');
+const finalPrompt = document.getElementById("final-prompt");
 const codeInput = document.getElementById('code-input');
 const codeSubmit = document.getElementById('code-submit');
 const codeMessage = document.getElementById('code-message');
@@ -90,7 +91,7 @@ const handleClick = (event) => {
         if (winner === 'Draw') {
           drawsOrLosses++;
           drawsCounterElement.textContent = drawsOrLosses;
-          if (drawsOrLosses >= 15) {
+          if (drawsOrLosses > 15) {
             codePrompt.style.display = 'block';
           }
           alert("It's a draw!");
@@ -98,7 +99,7 @@ const handleClick = (event) => {
           alert(`${winner} wins!`);
           drawsOrLosses++;
           drawsCounterElement.textContent = drawsOrLosses;
-          if (drawsOrLosses >= 15) {
+          if (drawsOrLosses > 15) {
             codePrompt.style.display = 'block';
           }
         }
@@ -137,9 +138,20 @@ const handleClick = (event) => {
 };
 
 const handleCodeSubmit = () => {
-  if (codeInput.value === 'dinosaur') {
+  if (codeInput.value === 'dinosaurs') {
     codeMessage.textContent = 'Success!';
+    finalPrompt.style.display = "flex";
     codeMessage.style.color = 'green';
+    codePrompt.style.display = 'none';
+    document.getElementById("goat-container").style.display = "none";
+    fetch("/update-stage", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ curStage: "10" }),
+    })
+      .then((res) => res.json())
+      .then(console.log("Stage Updated"));
+
   } else {
     codeMessage.textContent = 'Incorrect code. Try again.';
     codeMessage.style.color = 'red';

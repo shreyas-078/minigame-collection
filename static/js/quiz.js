@@ -99,8 +99,20 @@ const questionsAndOptions = {
         "Johnny Depp",
         "Matt Damon",
     ],
-    "Which artist famously wore a meat dress to the 2010 MTV Video Music Awards?":
-        ["Lady Gaga", "Madonna", "Rihanna", "Katy Perry"],
+    "Ben affleck and Mattdamon won the oscar for Good will Hunting in what category? ":
+        [
+            "Original Screenplay",
+            "Best actor ",
+            "Best Supporting actor",
+            "Best actor and Supporting actor ",
+        ],
+
+    "Who portrayed Joker in 'The dark knight' ?": [
+        "Heath Ledger",
+        "Heath Sledger",
+        "Joaquin Pheonix",
+        "Katy Perry",
+    ],
 
     "Who created the 'Star Wars' franchise?": [
         "George Lucas",
@@ -113,6 +125,18 @@ const questionsAndOptions = {
         "Ariana Grande",
         "Selena Gomez",
         "Dua Lipa",
+    ],
+    "Which is the Most successful souls game?": [
+        "Elden ring",
+        "Dark Souls 3",
+        "Black Myth : Wukong",
+        "God of War ragnarok",
+    ],
+    "What is the Most sold game ? ": [
+        "Minecraft",
+        "Cyberpunk",
+        "Gta V",
+        "PUBG",
     ],
 };
 

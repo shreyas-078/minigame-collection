@@ -1,18 +1,13 @@
 from flask import (
     Flask,
     request,
-    session,
     jsonify,
     render_template,
-    send_from_directory,
-    url_for,
-    redirect,
 )
 from bson import ObjectId
 import os
 from flask_pymongo import PyMongo
 from dotenv import load_dotenv
-import random
 from vars import get_images_data, get_cards_data, get_picmatch_data
 import certifi
 from flask_login import (
@@ -55,6 +50,7 @@ app = Flask(__name__, static_url_path="/static", static_folder="static")
 app.secret_key = os.getenv("SECRET_KEY")
 # Get the Mongo URI from the environment file
 app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+flask_env = os.getenv("FLASK_ENV", "production")
 mongo = PyMongo(app, tlsCAFile=certifi.where())
 db = mongo.db
 
@@ -209,7 +205,6 @@ def higher_lower():
 
 @app.route("/stage6", methods=["GET"])
 def match_cards():
-    return render_template("memory-card.html")
     return check_stage_and_render("6", "memory-card.html")
 
 
@@ -267,7 +262,7 @@ def new_user_creation():
 
 
 @app.errorhandler(404)
-def page_not_found():
+def page_not_found(error):
     return render_template("404.html"), 404
 
 
@@ -278,4 +273,7 @@ def unauthorized():
 
 
 if __name__ == "__main__":
-    app.run("localhost", debug=True, port=5000)
+    if flask_env == "development":
+        app.run("0.0.0.0", debug=True, port=7800)
+    else:
+        print("Production Mode.")

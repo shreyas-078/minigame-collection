@@ -1,7 +1,7 @@
 const createProfileButton = document.getElementById("create-profile");
 const nameBox = document.getElementById("name");
 const passBox = document.getElementById("password");
-const heplerText = document.getElementById("helper-text")
+const heplerText = document.getElementById("helper-text");
 
 createProfileButton.addEventListener("click", () => {
   const name = nameBox.value;

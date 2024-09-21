@@ -119,7 +119,7 @@ function resetBoard() {
 }
 
 function checkForCompletion() {
-  if (matchedPairs === totalPairs && score < 15) {
+  if (matchedPairs === totalPairs && score <= 15) {
     fetch("/update-stage", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -128,15 +128,15 @@ function checkForCompletion() {
       .then((res) => res.json())
       .then(() => {
         console.log("Stage Updated");
-        helperText.textContent = "Congratulations! Among the Fruits, A Letter R was found. Proceeding to the next stage in 7 seconds!";
-        helperText.style.color = "green";
-        helperText.classList.remove("invisible");
-        const nextStageAnchor = document.createElement("a");
-        nextStageAnchor.href = "/stage7";
-        nextStageAnchor.style = "display: none;";
-        document.body.appendChild(nextStageAnchor);
-        setTimeout(() => { nextStageAnchor.click() }, 7000);
       });
+    helperText.textContent = "Congratulations! Among the Fruits, A Letter R was found. Proceeding to the next stage in 7 seconds!";
+    helperText.style.color = "green";
+    helperText.classList.remove("invisible");
+    const nextStageAnchor = document.createElement("a");
+    nextStageAnchor.href = "/stage7";
+    nextStageAnchor.style = "display: none;";
+    document.body.appendChild(nextStageAnchor);
+    setTimeout(() => { nextStageAnchor.click() }, 7000);
   }
 
   if (matchedPairs === totalPairs && score > 15) {

@@ -76,7 +76,7 @@ class PositionElements {
     const { cells, draggableDivs, finalImg, loader, randomBtn } = this.elements;
     loader.classList.add('active');
     loader.classList.remove('active');
-    const imageUrl = images[Math.floor(Math.random() * 16)]["image"];
+    const imageUrl = images[Math.floor(Math.random() * 15) + 1]["image"];
     console.log(imageUrl);
     finalImg.style.backgroundImage = `url(${imageUrl})`
 
@@ -133,11 +133,11 @@ class DragDrop {
           }
           console.log(this.points)
 
-          if (this.points.correct === cellsAmount && this.points.wrong < 50) {
+          if (this.points.correct === cellsAmount && this.points.wrong < 25) {
             modal.style.cssText = 'opacity: 1; visibility: visible;'
             attempt.textContent = this.points.wrong
-            modalBtn.onclick = () => location.reload()
-            setTimeout(() => {
+            modalBtn.textContent = 'Next Stage'
+            modalBtn.onclick = () => {
               fetch("/update-stage", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -145,15 +145,14 @@ class DragDrop {
               })
                 .then((res) => res.json())
                 .then(console.log("Stage Updated"));
-              alert("You Win! Oh my O! Take it and Go. Leaving to the next stage in 5 seconds.")
               const nextStageAnchor = document.createElement("a");
               nextStageAnchor.href = "/stage10";
               nextStageAnchor.style = "display: none;";
               document.body.appendChild(nextStageAnchor);
               nextStageAnchor.click();
-            }, 5000);
+            }
           }
-          if (this.points.correct === cellsAmount && this.points.wrong > 50) {
+          if (this.points.correct === cellsAmount && this.points.wrong > 25) {
             modal.style.cssText = 'opacity: 1; visibility: visible;'
             modalText.textContent = 'You took too Many Wrong Attempts. Please Try Again.'
             modalBtn.onclick = () => location.reload()

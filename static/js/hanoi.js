@@ -45,7 +45,7 @@ function drop(event) {
 function checkWin() {
     const tower3 = document.getElementById('tower3');
     if (tower3.children.length === 4) {
-        document.getElementById('status').textContent = "Congratulations! You solved the Tower of Hanoi in the optimal number of moves! Proceeding to the next stage in 5 seconds.";
+        document.getElementById('status').textContent = "Congratulations! You solved the Tower of Hanoi in the optimal number of moves! Proceeding to the next stage in 5 seconds. From the height of the tower, you see the letter A.";
         setTimeout(function () {
             const nextStageAnchor = document.createElement("a");
             fetch("/update-stage", {
