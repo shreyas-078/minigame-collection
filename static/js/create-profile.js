@@ -1,15 +1,16 @@
 const createProfileButton = document.getElementById("create-profile");
 const nameBox = document.getElementById("name");
 const passBox = document.getElementById("password");
-const heplerText = document.getElementById("helper-text");
+const helperText = document.getElementById("helper-text");
 
 createProfileButton.addEventListener("click", () => {
-  const name = nameBox.value;
-  const password = passBox.value;
+  const name = nameBox.value.trim();
+  const password = passBox.value.trim();
   if (!name || !password) {
     helperText.textContent = "Please Enter Both Username and password!";
     helperText.style.color = "red";
-    heplerText.classList.remove("invisible");
+    helperText.classList.remove("invisible");
+    return;
   }
   fetch("/create-profile", {
     method: "POST",
@@ -17,12 +18,13 @@ createProfileButton.addEventListener("click", () => {
     headers: { "Content-Type": "application/json" }
   }).then(res => res.json()).then(data => {
     if (data["message"]) {
-      heplerText.style = "color:green;"
-      heplerText.textContent = "Profile Created Successfully! Log in from the Log In Page to Enter the Games!";
-      heplerText.classList.remove("invisible");
+      helperText.style = "color:green;"
+      helperText.textContent = "Profile Created Successfully! Log in from the Log In Page to Enter the Games!";
+      helperText.classList.remove("invisible");
     }
     else if (data["error"]) {
-      heplerText.textContent = "Username is taken. Try a different one!"
+      helperText.style = "color:red;"
+      helperText.textContent = "Username is taken. Try a different one!"
     }
   });
 });
