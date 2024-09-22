@@ -6,34 +6,11 @@ let lockBoard = false;
 let score = 0;
 let totalPairs;
 let matchedPairs = 0;
-let timerExpired = false;
-let timeRemaining = 100;
+
 
 // Map to store token-to-name mappings internally (invisible to users)
 let cardMap = {};
 
-function startTimer() {
-  timeRemaining = 100; // 1:40 in seconds
-  timerExpired = false;
-  const timerElement = document.getElementById('timer');
-  timerElement.textContent = "1:40";
-
-  const countdown = setInterval(() => {
-    const minutes = Math.floor(timeRemaining / 60);
-    const seconds = timeRemaining % 60;
-
-    const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    timerElement.textContent = formattedTime;
-
-    timeRemaining--;
-
-    if (timeRemaining < 0) {
-      clearInterval(countdown);
-      timerExpired = true;
-      timerElement.textContent = "0:00";
-    }
-  }, 1000); // Update every second
-}
 
 document.querySelector(".score").textContent = score;
 
@@ -138,26 +115,35 @@ function resetBoard() {
 }
 
 function checkForCompletion() {
-  if (matchedPairs === totalPairs && score <= 15) {
-    helperText.textContent = "Congratulations! Among the Fruits, A Letter R was found. Proceeding to the next stage in 7 seconds!";
-    helperText.style.color = "green";
-    helperText.classList.remove("invisible");
-    const nextStageAnchor = document.createElement("a");
-    nextStageAnchor.href = "/stage7";
-    nextStageAnchor.style = "display: none;";
-    document.body.appendChild(nextStageAnchor);
-    setTimeout(() => { nextStageAnchor.click() }, 7000);
-  }
+  if (matchedPairs === totalPairs) {
+    if (score <= 15) {
+      fetch("/update-stage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ curStage: "6" }),
+      })
+        .then((res) => res.json())
+        .then(console.log("Stage Updated"));
 
-  if (matchedPairs === totalPairs && score > 15 || matchedPairs === totalPairs && timerExpired) {
-    helperText.textContent = "You took too many moves and Fruits rotted. Please Try With A Fresh Batch of Fruits, arriving in 5 seconds.";
-    helperText.style.color = "red";
-    helperText.classList.remove("invisible");
-    setTimeout(() => {
-      restart();
-    }, 7000);
+      helperText.textContent = "Congratulations! Among the Fruits, A Letter R was found. Proceeding to the next stage in 7 seconds!";
+      helperText.style.color = "green";
+      helperText.classList.remove("invisible");
+      const nextStageAnchor = document.createElement("a");
+      nextStageAnchor.href = "/stage7";
+      nextStageAnchor.style = "display: none;";
+      document.body.appendChild(nextStageAnchor);
+      setTimeout(() => { nextStageAnchor.click() }, 7000);
+    } else {
+      helperText.textContent = "You matched all pairs, but took too many moves. Please try again with a fresh batch of fruits in 5 seconds.";
+      helperText.style.color = "red";
+      helperText.classList.remove("invisible");
+      setTimeout(() => {
+        restart();
+      }, 5000);
+    }
   }
 }
+
 
 function restart() {
   helperText.classList.add("invisible");
@@ -166,12 +152,6 @@ function restart() {
   score = 0;
   document.querySelector(".score").textContent = score;
   gridContainer.innerHTML = "";
-  timeRemaining = 100; // 1:40 in seconds
-  timerExpired = false;
-  const timerElement = document.getElementById('timer');
-  timerElement.textContent = "1:40";
   generateCards();
-  startTimer();
 }
 
-window.onload = startTimer;

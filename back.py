@@ -192,9 +192,8 @@ def higher_lower():
 
 
 @app.route("/stage6", methods=["GET"])
-# @login_required
+@login_required
 def match_cards():
-    return render_template("memory-card.html")
     return check_stage_and_render("6", "memory-card.html")
 
 
