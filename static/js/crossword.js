@@ -925,7 +925,7 @@ function calculateScore(userSolved = true) {
       })
         .then((res) => res.json())
         .then(console.log("Stage Updated"));
-      alert("You happen to have crossed by the letter S. Say Hi! Next Stage in 5.");
+      alert("You happen to have crossed by the letter S. Say Hi! Next Stage in 5 seconds.");
       const nextStageAnchor = document.createElement("a");
       nextStageAnchor.href = "/stage3";
       nextStageAnchor.style = "display: none;";

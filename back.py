@@ -103,17 +103,6 @@ def fetch_cards():
     return jsonify(cards)  # Return card data as JSON
 
 
-@app.route("/check-match", methods=["POST"])
-def check_match():
-    selected_tokens = request.json["selected_tokens"]
-    if len(selected_tokens) != 2:
-        return jsonify(match=False)
-
-    card_names = [card_token_map.get(token) for token in selected_tokens]
-    match = card_names[0] == card_names[1]
-    return jsonify(match=match)
-
-
 @app.route("/fetch-images", methods=["GET"])
 def fetch_images():
     topics = get_images_data(app)

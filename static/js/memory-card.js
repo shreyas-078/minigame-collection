@@ -7,10 +7,14 @@ let score = 0;
 let totalPairs;
 let matchedPairs = 0;
 let timerExpired = false;
+let timeRemaining = 100;
+
+// Map to store token-to-name mappings internally (invisible to users)
+let cardMap = {};
 
 function startTimer() {
-  let timeRemaining = 100; // 1:40 in seconds
-  let timerExpired = false;
+  timeRemaining = 100; // 1:40 in seconds
+  timerExpired = false;
   const timerElement = document.getElementById('timer');
   timerElement.textContent = "1:40";
 
@@ -37,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch("/fetch-cards")
     .then((res) => res.json())
     .then((data) => {
-      cards = [...data];
+      cards = [...data];  // Cards now contain 'name', 'image', and 'token'
       shuffleCards();
       generateCards();
     })
@@ -59,10 +63,14 @@ function shuffleCards() {
 
 function generateCards() {
   totalPairs = cards.length / 2;
+
   for (let card of cards) {
     const cardElement = document.createElement("div");
     cardElement.classList.add("card");
     cardElement.setAttribute("data-token", card.token);  // Unique token for each card
+
+    // Store card name and token in the internal map (not visible in the DOM)
+    cardMap[card.token] = card.name;
 
     cardElement.innerHTML = `
       <div class="front">
@@ -95,26 +103,15 @@ function flipCard() {
 }
 
 function checkForMatch() {
-  const firstToken = firstCard.dataset.token;
-  const secondToken = secondCard.dataset.token;
+  const firstToken = firstCard.getAttribute("data-token");
+  const secondToken = secondCard.getAttribute("data-token");
 
-
-  fetch("/check-match", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ selected_tokens: [firstToken, secondToken] }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      if (data.match) {
-        disableCards();
-      } else {
-        unflipCards();
-      }
-    })
-    .catch((error) => {
-      console.error("Error checking match:", error);
-    });
+  // Compare card names using the internal cardMap
+  if (cardMap[firstToken] === cardMap[secondToken]) {
+    disableCards();
+  } else {
+    unflipCards();
+  }
 }
 
 function disableCards() {
@@ -123,7 +120,6 @@ function disableCards() {
   matchedPairs++;
 
   checkForCompletion();
-
   resetBoard();
 }
 
@@ -143,15 +139,6 @@ function resetBoard() {
 
 function checkForCompletion() {
   if (matchedPairs === totalPairs && score <= 15) {
-    fetch("/update-stage", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ curStage: "6" }),
-    })
-      .then((res) => res.json())
-      .then(() => {
-        console.log("Stage Updated");
-      });
     helperText.textContent = "Congratulations! Among the Fruits, A Letter R was found. Proceeding to the next stage in 7 seconds!";
     helperText.style.color = "green";
     helperText.classList.remove("invisible");
@@ -172,8 +159,6 @@ function checkForCompletion() {
   }
 }
 
-window.onload = startTimer;
-
 function restart() {
   helperText.classList.add("invisible");
   resetBoard();
@@ -181,6 +166,12 @@ function restart() {
   score = 0;
   document.querySelector(".score").textContent = score;
   gridContainer.innerHTML = "";
+  timeRemaining = 100; // 1:40 in seconds
+  timerExpired = false;
+  const timerElement = document.getElementById('timer');
+  timerElement.textContent = "1:40";
   generateCards();
   startTimer();
 }
+
+window.onload = startTimer;
