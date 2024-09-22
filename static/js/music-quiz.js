@@ -5,14 +5,12 @@ const questionsAndOptions = {
     "Maanikya",
     "Hebbuli",
   ],
-  "Come along with me, O Companion Just like a hero who becomes part of a story O, Come along smoothly O soft- spoken one In love, this entire world is like a bar": ["Jotegaara ", "KGF", "Kantara", "Lucia"],
-  "Swear on Goddess Chamundi, I am always yours In all my re-births I would be born here itself I would always love only you lion": ["Aaptharakshaka", "Sati Sulochana", "Raajakumara", "Ulidavaru Kandanthe"],
-  "I see God in you, my beloved, and I bow my head in prayer, wondering what I can do": [
-    "Rab Ne Bana Di Jodi",
-    "Black",
-    "Dil Chahta Hai",
-    "Swades",
-  ],
+  "Come along with me, O Companion Just like a hero who becomes part of a story O, Come along smoothly O soft- spoken one In love, this entire world is like a bar":
+    ["Jotegaara ", "KGF", "Kantara", "Lucia"],
+  "Swear on Goddess Chamundi, I am always yours In all my re-births I would be born here itself I would always love only you lion":
+    ["Aaptharakshaka", "Sati Sulochana", "Raajakumara", "Ulidavaru Kandanthe"],
+  "I see God in you, my beloved, and I bow my head in prayer, wondering what I can do":
+    ["Rab Ne Bana Di Jodi", "Black", "Dil Chahta Hai", "Swades"],
   "You are the only one, now my life is only about you.": [
     "Aashiqui 2",
     "3 Idiots",
@@ -25,27 +23,58 @@ const questionsAndOptions = {
     "Bhaag Milkha Bhaag",
     "Ae Dil Hai Mushkil",
   ],
-  "Near, far, wherever you are, I believe that the heart does go on, and we'll stay forever this way.": [
-    "Titanic",
-    "Forrest Gump",
-    "The Godfather",
-    "The Wolf of Wall Street",
+  "Near, far, wherever you are, I believe that the heart does go on, and we'll stay forever this way.":
+    ["Titanic", "Forrest Gump", "The Godfather", "The Wolf of Wall Street"],
+  "How much do I love you, just tell me.": [
+    "Kabir Singh",
+    "Dilwale Dulhania Le Jayenge",
+    "Ae Dil Hai Mushkil",
+    "Kuch Kuch Hota Hai",
   ],
-  "I'm off the deep end, watch as I dive in, I'll never meet the ground. In the shallow, shallow, in the sha-la-low.": [
-    "A Star Is Born",
-    "Scarface",
-    " The Bucket List",
-    "The Terminal",
+  "i don't care when i'm with my baby yeah": [
+    "Ed Sheeran Justin Bieber",
+    "Post malone",
+    "Dj snake ",
+    "Drake",
   ],
-  "The cold never bothered me anyway. Let it go, let it go, can't hold it back anymore.": [
-    "Frozen",
-    "The Bridges of Madison County",
-    " Driving Miss Daisy",
-    "Catch Me If You Can",
+  "I'm off the deep end, watch as I dive in, I'll never meet the ground. In the shallow, shallow, in the sha-la-low.":
+    ["A Star Is Born", "Scarface", " The Bucket List", "The Terminal"],
+
+  "Channa mereya mereya Channa mereya mereya?": [
+    "Ae Dil Hai Mushkil",
+    "Kabir Singh",
+    "Bajrangi Bhaijaan",
+    "Dilwale Dulhania Le Jayenge",
+  ],
+
+  "In which film can you find the lyrics 'Tum se hi din hota hai'?": [
+    "Jab We Met",
+    "Pyaar Ka Punchnama",
+    "Rockstar",
+    "Main Prem Ki Diwani Hoon",
+  ],
+
+  "Lastu benchina party nammadu ": [
+    "Kirik Party",
+    "Aavesham",
+    "Rockstar",
+    "Bangalore days",
+  ],
+  "The cold never bothered me anyway. Let it go, let it go, can't hold it back anymore.":
+    [
+      "Frozen",
+      "The Bridges of Madison County",
+      " Driving Miss Daisy",
+      "Catch Me If You Can",
+    ],
+
+  "Chitranna chitranna chitra chitra chitranna": [
+    "Buddhivantha",
+    "Upendra",
+    "A",
+    "Om",
   ]
-
 };
-
 const checkAnswerButton = document.getElementById("check-answer");
 const nextQuestionButton = document.getElementById("next-question");
 const question = document.querySelector(".question");

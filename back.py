@@ -19,7 +19,6 @@ from flask_login import (
 )
 import uuid
 
-# In-memory storage for demonstration; use a database in production
 card_token_map = {}
 
 
@@ -204,7 +203,9 @@ def higher_lower():
 
 
 @app.route("/stage6", methods=["GET"])
+# @login_required
 def match_cards():
+    return render_template("memory-card.html")
     return check_stage_and_render("6", "memory-card.html")
 
 

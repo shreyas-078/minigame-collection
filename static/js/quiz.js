@@ -19,18 +19,95 @@ const questionsAndOptions = {
         "Jupiter",
         "Saturn",
     ],
+    "In which year was Bangalore Institute of Technology (BIT) established?": [
+        "1979",
+        "1969",
+        "1986",
+        "1995",
+    ],
+    "BIT is affiliated with which university?": [
+        "Visvesvaraya Technological University (VTU)",
+        "None ",
+        "Bangalore University",
+        "Jain University",
+    ],
+    "Which of the following courses is NOT offered at BIT, Basavanagudi?": [
+        "Aerospace Engineering",
+        "Civil Engineering",
+        "Information Science Engineering",
+        "Mechanical Engineering",
+    ],
+    "BIT's campus is located near which famous Bangalore landmark?": [
+        "Lalbagh Botanical Garden",
+        "Cubbon Park",
+        "Vidhana Soudha",
+        "MG Road",
+    ],
+    "What is the full title of the first film in the KGF series?": [
+        "K.G.F: Chapter 1",
+        "KGF: A New Dawn",
+        "K.G.F: Rise of the King",
+        "KGF: The Legacy",
+    ],
+    "Which film features Rakshit Shetty in a fantasy adventure role?": [
+        "Avane Srimannarayana",
+        "Kirik Party",
+        "Simple Agi Ondh Love Story",
+        "Shh!",
+    ],
+
+    "Which department at BIT is the oldest?": [
+        "Civil Engineering",
+        "Mechanical Engineering",
+        "Electrical and Electronics Engineering",
+        "Computer Science Engineering",
+    ],
+    "Which of these student programs at BIT is specifically focused on fostering entrepreneurship?":
+        ["Startup Cell", "E-Club", "Innovation Hub", "Venture Circle"],
+    "Which Bollywood movie became the highest-grossing film of 2022?": [
+        "Pathaan",
+        "Brahmastra",
+        "KGF: Chapter 2",
+        "RRR",
+    ],
+    "Which actor won the National Film Award for Best Actor in 2024?": [
+        "Rishab Shetty",
+        "Rakshit shetty",
+        "Ranveer Singh",
+        "Irrfan Khan",
+    ],
     "Who painted the 'Mona Lisa'?": [
         "Leonardo da Vinci",
         "Vincent van Gogh",
         "Pablo Picasso",
         "Claude Monet",
     ],
+    "Which Bollywood film in 2020 was a biopic about an unsung hero of the Indian space program?":
+        [
+            "Rocketry: The Nambi Effect",
+            "Mission Mangal",
+            "Shakuntala Devi",
+            "Chandrayaan",
+        ],
     "What is the process of plants making their own food called?": [
         "Photosynthesis",
         "Respiration",
         "Transpiration",
         "Decomposition",
     ],
+    "Who was the lead actor in the hit Kannada movie 'Roberrt' (2021)?": [
+        "Darshan",
+        "Puneeth Rajkumar",
+        "Yash",
+        "Sudeep",
+    ],
+    "What is the title of Upendra's debut film as a director?": [
+        "Tharle Nan Maga",
+        "Shh!",
+        "A",
+        "Uppi 2",
+    ],
+
     "What gas do plants use for photosynthesis?": [
         "Carbon dioxide",
         "Oxygen",
@@ -132,12 +209,7 @@ const questionsAndOptions = {
         "Black Myth : Wukong",
         "God of War ragnarok",
     ],
-    "What is the Most sold game ? ": [
-        "Minecraft",
-        "Cyberpunk",
-        "Gta V",
-        "PUBG",
-    ],
+    "What is the Most sold game ? ": ["Minecraft", "Cyberpunk", "Gta V", "PUBG"],
 };
 
 const checkAnswerButton = document.getElementById("check-answer");

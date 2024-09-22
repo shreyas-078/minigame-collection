@@ -60,23 +60,62 @@ function drawHangman(livesRemaining) {
 }
 
 const categories = {
-  animals: [
-    { phrase: 'elephant', hint: 'A large mammal with a trunk.' },
-    { phrase: 'giraffe', hint: 'Tallest land animal.' },
-    { phrase: 'kangaroo', hint: 'A marsupial from Australia.' },
-    { phrase: 'polar bear', hint: 'White bear found in the Arctic.' }
+  BIT: [
+    { phrase: "kateel", hint: "Egg Puffs" },
+    { phrase: "mass bunk", hint: "1 Credit Subjects" },
+    { phrase: "five", hint: "Number of Entrances to College " },
+    { phrase: "quadrangle", hint: "Center of Attraction" },
+    { phrase: "manthan", hint: "Once a year" },
+    { phrase: "Kuvempu kalakshetra", hint: "Our Colosseum" },
+    { phrase: "nikhil kamath", hint: "Zerodha" },
+    {
+      phrase: "Shankar Nag",
+      hint: "Autoraja, poster under National college metro",
+    },
+    { phrase: "Rajya Vokkaligara Sangha", hint: "Organization that established BIT" },
   ],
-  phrases: [
-    { phrase: 'happy birthday', hint: 'Celebration of birth.' },
-    { phrase: 'new york city', hint: 'A major city in the USA.' },
-    { phrase: 'to be or not to be', hint: 'Famous line from Hamlet.' }
+  Films: [
+    { phrase: "mungaru male", hint: "Water, Rabbit, Watch" },
+    { phrase: "kirik party", hint: "Kannada Engineering Classic" },
+    { phrase: "shutter island", hint: "DiCaprio's Dream" },
+    { phrase: "finding nemo", hint: "Orange Fish" },
+    { phrase: "yeh jawani hai deewani", hint: "Manali Trip Life Change" },
+    { phrase: "chichore", hint: "Hindi Engineering Classic" },
+    { phrase: "gaalipata", hint: "Kite" },
+    { phrase: "mission impossible", hint: "Train parachute stunt" },
+    { phrase: "terminator", hint: "Lava thumbs up" },
+    { phrase: "predator", hint: "Get to the choppa" },
+    { phrase: "justice league", hint: "DC get-together" },
+    { phrase: "doctor strange", hint: "Master of mystic arts" },
+    { phrase: "kashmir files", hint: "Pandits excommunication" },
+    { phrase: "dangal", hint: "Wrestling and daughters" },
+    { phrase: "3-idiots", hint: "All is well" },
+    { phrase: "the-godfather", hint: "Italian crime family" },
+    { phrase: "inception", hint: "Dream within a dream" },
+    { phrase: "avatar", hint: "Blue aliens and Pandora" },
+    { phrase: "tumbbad", hint: "Treasure and mythology" },
+    { phrase: "padmaavat", hint: "Queen and valor" },
+    { phrase: "zindagi-na-milegi-dobara", hint: "Road trip in Spain" },
+    { phrase: "slumdog-millionaire", hint: "Game show and destiny" },
+    { phrase: "the-dark-knight", hint: "Hero vs. Joker" },
   ],
-  fruits: [
-    { phrase: 'apple', hint: 'A common fruit, often red or green.' },
-    { phrase: 'banana', hint: 'A long yellow fruit.' },
-    { phrase: 'pineapple', hint: 'A tropical fruit with spiky skin.' },
-    { phrase: 'watermelon', hint: 'A large fruit with green skin and red flesh.' }
-  ]
+  Cities: [
+    { phrase: "kolkata", hint: "Won IPL in 2014" },
+    { phrase: "mumbai", hint: "Home to Bollywood" },
+    { phrase: "hyderabad", hint: "Charminar and biryani" },
+    { phrase: "bengaluru", hint: "3rd Most populated in India" },
+    { phrase: "mysore", hint: "Heritage City" },
+    { phrase: "delhi", hint: "Pollution City" },
+    { phrase: "chikmaglur", hint: "Land of Coffee" },
+    { phrase: "mangalore", hint: "Famous for beaches and seafood" },
+    { phrase: "coorg", hint: "Scenic hills,Switzerland of India" },
+    { phrase: "davangere", hint: "famous for benne dose " },
+    { phrase: "shimoga", hint: "Gateway to Jog Falls" },
+    { phrase: "kolar", hint: "Gold mines and historical significance" },
+    { phrase: "udupi", hint: "Famous for Krishna temple and matt" },
+    { phrase: "tumkur", hint: "Educational hub with several institutions" },
+    { phrase: "chitradurga", hint: "Famous for its fort and history" },
+  ],
 };
 
 let currentCategory = '';

@@ -6,6 +6,30 @@ let lockBoard = false;
 let score = 0;
 let totalPairs;
 let matchedPairs = 0;
+let timerExpired = false;
+
+function startTimer() {
+  let timeRemaining = 100; // 1:40 in seconds
+  let timerExpired = false;
+  const timerElement = document.getElementById('timer');
+  timerElement.textContent = "1:40";
+
+  const countdown = setInterval(() => {
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+
+    const formattedTime = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+    timerElement.textContent = formattedTime;
+
+    timeRemaining--;
+
+    if (timeRemaining < 0) {
+      clearInterval(countdown);
+      timerExpired = true;
+      timerElement.textContent = "0:00";
+    }
+  }, 1000); // Update every second
+}
 
 document.querySelector(".score").textContent = score;
 
@@ -74,7 +98,6 @@ function checkForMatch() {
   const firstToken = firstCard.dataset.token;
   const secondToken = secondCard.dataset.token;
 
-  console.log("Checking match:", firstToken, secondToken);
 
   fetch("/check-match", {
     method: "POST",
@@ -139,7 +162,7 @@ function checkForCompletion() {
     setTimeout(() => { nextStageAnchor.click() }, 7000);
   }
 
-  if (matchedPairs === totalPairs && score > 15) {
+  if (matchedPairs === totalPairs && score > 15 || matchedPairs === totalPairs && timerExpired) {
     helperText.textContent = "You took too many moves and Fruits rotted. Please Try With A Fresh Batch of Fruits, arriving in 5 seconds.";
     helperText.style.color = "red";
     helperText.classList.remove("invisible");
@@ -149,6 +172,8 @@ function checkForCompletion() {
   }
 }
 
+window.onload = startTimer;
+
 function restart() {
   helperText.classList.add("invisible");
   resetBoard();
@@ -157,4 +182,5 @@ function restart() {
   document.querySelector(".score").textContent = score;
   gridContainer.innerHTML = "";
   generateCards();
+  startTimer();
 }
