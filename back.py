@@ -227,9 +227,8 @@ def pic_match():
 
 
 @app.route("/stage10", methods=["GET"])
-# @login_required
+@login_required
 def impossible_tac_toe():
-    return render_template("impossible-tac-toe.html")
     return check_stage_and_render("10", "impossible-tac-toe.html")
 
 
