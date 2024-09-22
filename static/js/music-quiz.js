@@ -47,7 +47,7 @@ const questionsAndOptions = {
     "Dilwale Dulhania Le Jayenge",
   ],
 
-  "In which film can you find the lyrics 'Tum se hi din hota hai'?": [
+  "Tum se hi din hota hai": [
     "Jab We Met",
     "Pyaar Ka Punchnama",
     "Rockstar",
@@ -73,7 +73,19 @@ const questionsAndOptions = {
     "Upendra",
     "A",
     "Om",
-  ]
+  ],
+    "Why is the sky only this much ": [
+    "Gaalipata ",
+    "Mungaru male",
+    "Gaalipata 2 ",
+    "Mungaru male 2",
+  ],
+  "River ohh river ,ill wait for you. i'll watch your path everyday  ": [
+    "Saptha Sagaradaache Ello ",
+    "Mungaru male",
+    "Gaalipata ",
+    "None",]
+  
 };
 const checkAnswerButton = document.getElementById("check-answer");
 const nextQuestionButton = document.getElementById("next-question");
